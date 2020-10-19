@@ -18,9 +18,59 @@ struct CreditCard<Content>: View where Content: View {
 
 struct CreditCardFront : View {
     var body: some View {
-        VStack {
-            Text("FRONT").foregroundColor(Color.white)
-        }.frame(width: 300, height: 200)
+        VStack(alignment: .leading) {
+            
+            HStack(alignment: .top) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                Text("Ualá")
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 24))
+                    .fontWeight(.bold)
+            }
+            
+        Spacer()
+            
+        Text("**** **** **** 1234")
+            .foregroundColor(Color.white)
+            .font(.system(size: 32))
+            
+        Spacer()
+            
+            HStack {
+                
+                VStack(alignment: .leading){
+                    Text("CARD HOLDER")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
+                    
+                    Text("Edgar E.")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                
+                Spacer()
+                
+                VStack {
+                    Text("EXPIRES")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.gray)
+                    Text("19/10/2020")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                }
+            }
+            
+        }
+        .padding()
+        .frame(width: 300, height: 200)
         .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .leading, endPoint: .trailing))
         .cornerRadius(10)
     }
