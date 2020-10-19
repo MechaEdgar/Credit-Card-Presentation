@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var degrees: Double = 0
+    @State private var flipped: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        CreditCard {
+            CreditCardFront()
+        }.onTapGesture {
+            withAnimation {
+                degrees += 180
+                flipped.toggle()
+            }
+        }
     }
 }
 
