@@ -79,7 +79,25 @@ struct CreditCardFront : View {
 struct CreditCardBack : View {
     var body: some View {
         VStack {
-            Text("BACK").foregroundColor(Color.white)
+            
+            Rectangle()
+                .frame(maxWidth: .infinity, maxHeight: 20)
+                .padding([.top])
+            
+            Spacer()
+            
+            HStack {
+                Text("123")
+                    .foregroundColor(Color.black)
+                    .rotation3DEffect(
+                        .degrees(180),
+                        axis: (x: 0.0, y: 1.0, z: 0.0))
+                        .padding(5)
+                    .frame(width: 100, height: 20)
+                    .background(Color.white)
+                Spacer()
+            }.padding()
+            
         }.frame(width: 300, height: 200)
         .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .leading, endPoint: .trailing))
         .cornerRadius(10)
@@ -88,6 +106,6 @@ struct CreditCardBack : View {
 
 struct CreditCard_Previews: PreviewProvider {
     static var previews: some View {
-        CreditCard<CreditCardFront>(content: { CreditCardFront() })
+        CreditCard<CreditCardBack>(content: { CreditCardBack() })
     }
 }
