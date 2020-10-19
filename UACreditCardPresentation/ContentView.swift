@@ -13,7 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         CreditCard {
-            CreditCardFront()
+            
+            Group {
+                if flipped {
+                    CreditCardBack()
+                } else {
+                    CreditCardFront()
+                }
+            }
+            
         }.onTapGesture {
             withAnimation {
                 degrees += 180
