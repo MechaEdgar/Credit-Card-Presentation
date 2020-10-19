@@ -14,13 +14,19 @@ struct ContentView: View {
     var body: some View {
         CreditCard {
             
-            Group {
-                if flipped {
-                    CreditCardBack()
-                } else {
-                    CreditCardFront()
+            VStack {
+                Group {
+                    if flipped {
+                        CreditCardBack()
+                    } else {
+                        CreditCardFront()
+                    }
                 }
-            }
+            }.rotation3DEffect(
+                .degrees(degrees),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+            )
+                
             
         }.onTapGesture {
             withAnimation {
